@@ -1,0 +1,92 @@
+<!-- orders.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Order Management</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="inventory.html">Inventory</a></li>
+                <li><a href="orders.html">Orders</a></li>
+                <li><a href="shipments.html">Shipments</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="order-management">
+            <h2>Orders</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="order-list">
+                    <!-- Orders will be listed here -->
+                </tbody>
+            </table>
+            <button onclick="addOrder()">Add New Order</button>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const orderList = document.getElementById('order-list');
+
+            function loadOrders() {
+                // Simulate loading order data
+                const orderData = [
+                    { id: 101, name: 'Item A', quantity: 20, status: 'Pending' },
+                    { id: 102, name: 'Item B', quantity: 50, status: 'Shipped' },
+                    { id: 103, name: 'Item C', quantity: 10, status: 'Delivered' }
+                ];
+
+                orderList.innerHTML = '';
+                orderData.forEach(order => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${order.id}</td>
+                        <td>${order.name}</td>
+                        <td>${order.quantity}</td>
+                        <td>${order.status}</td>
+                        <td>
+                            <button onclick="editOrder(${order.id})">Edit</button>
+                            <button onclick="deleteOrder(${order.id})">Delete</button>
+                        </td>
+                    `;
+                    orderList.appendChild(row);
+                });
+            }
+
+            loadOrders();
+
+            window.addOrder = function() {
+                // Add new order logic here
+                alert('Add new order functionality');
+            };
+
+            window.editOrder = function(orderId) {
+                // Edit order logic here
+                alert('Edit order functionality for order ID ' + orderId);
+            };
+
+            window.deleteOrder = function(orderId) {
+                // Delete order logic here
+                alert('Delete order functionality for order ID ' + orderId);
+            };
+        });
+    </script>
+</body>
+</html>

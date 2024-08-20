@@ -1,0 +1,90 @@
+<!-- inventory.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Inventory Management</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="inventory.html">Inventory</a></li>
+                <li><a href="orders.html">Orders</a></li>
+                <li><a href="shipments.html">Shipments</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="inventory-management">
+            <h2>Inventory Items</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item ID</th>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="inventory-list">
+                    <!-- Inventory items will be listed here -->
+                </tbody>
+            </table>
+            <button onclick="addItem()">Add New Item</button>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const inventoryList = document.getElementById('inventory-list');
+
+            function loadInventory() {
+                // Simulate loading inventory data
+                const inventoryData = [
+                    { id: 1, name: 'Item A', quantity: 50 },
+                    { id: 2, name: 'Item B', quantity: 30 },
+                    { id: 3, name: 'Item C', quantity: 100 }
+                ];
+
+                inventoryList.innerHTML = '';
+                inventoryData.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.id}</td>
+                        <td>${item.name}</td>
+                        <td>${item.quantity}</td>
+                        <td>
+                            <button onclick="editItem(${item.id})">Edit</button>
+                            <button onclick="deleteItem(${item.id})">Delete</button>
+                        </td>
+                    `;
+                    inventoryList.appendChild(row);
+                });
+            }
+
+            loadInventory();
+
+            window.addItem = function() {
+                // Add new item logic here
+                alert('Add new item functionality');
+            };
+
+            window.editItem = function(itemId) {
+                // Edit item logic here
+                alert('Edit item functionality for item ID ' + itemId);
+            };
+
+            window.deleteItem = function(itemId) {
+                // Delete item logic here
+                alert('Delete item functionality for item ID ' + itemId);
+            };
+        });
+    </script>
+</body>
+</html>

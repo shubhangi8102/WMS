@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header>
+        <h1 class="highlight">Warehouse Management System</h1>
+    </header>
+    <main>
+        <section class="login">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="error" id="error-message"></div>
+                <input type="text" id="username" placeholder="Username" required aria-label="Username">
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Password" required aria-label="Password">
+                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                </div>
+                <button type="submit">Login</button>
+                <div class="forgot-password">
+                    <a href="forgot-password.html">Forgot Password?</a>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginForm = document.getElementById('loginForm');
+            const errorMessage = document.getElementById('error-message');
+
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                // Example validation logic
+                if (username === '' || password === '') {
+                    errorMessage.textContent = 'Please fill in all fields.';
+                    return;
+                }
+
+                // Simulate login process
+                // Replace with actual login logic
+                if (username === 'admin' && password === '1234') {
+                    window.location.href = 'index.html'; // Redirect to dashboard on successful login
+                } else {
+                    errorMessage.textContent = 'Invalid username or password.';
+                }
+            });
+
+            function togglePassword() {
+                const passwordField = document.getElementById('password');
+                const type = passwordField.type === 'password' ? 'text' : 'password';
+                passwordField.type = type;
+            }
+        });
+    </script>
+</body>
+</html>
