@@ -1,113 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Warehouse Management System</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-    <header>
-        <h1>Warehouse Management System</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Dashboard</a></li>
-                <li><a href="inventory.html">Inventory</a></li>
-                <li><a href="orders.html">Orders</a></li>
-                <li><a href="shipments.html">Shipments</a></li>
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="login.html">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
+  </head>
+  <body>
+    <nav>
+      <h3>Warehouse Management System</h3>
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="inventory.html">Inventory</a></li>
+        <li><a href="orders.html">Orders</a></li>
+        <li><a href="shipments.html">Shipments</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="login.html">Logout</a></li>
+      </ul>
+    </nav>
     <main>
-        <section class="dashboard-overview">
+      <section class="hero-container">
+        <div class="hero-text">
             <h2>Dashboard Overview</h2>
             <div class="cards">
-                <div class="card">
-                    <h3>Total Inventory</h3>
-                    <p id="total-inventory">0</p>
-                </div>
-                <div class="card">
-                    <h3>Pending Orders</h3>
-                    <p id="pending-orders">0</p>
-                </div>
-                <div class="card">
-                    <h3>Shipments</h3>
-                    <p id="total-shipments">0</p>
-                </div>
+              <div class="card">
+                <h3>Total Inventory</h3>
+                <p id="total-inventory">0</p>
+              </div>
+              <div class="card">
+                <h3>Pending Orders</h3>
+                <p id="pending-orders">0</p>
+              </div>
+              <div class="card">
+                <h3>Shipments</h3>
+                <p id="total-shipments">0</p>
+              </div>
+              <div class="card">
+                <h3>Shipments</h3>
+                <p id="total-shipments">0</p>
+              </div>
             </div>
-
-            <div class="chart-container">
-                <canvas id="inventoryChart"></canvas>
-            </div>
-        </section>
+    
+           
+        </div>
+       <div class="hero-img">
+        <img src="./img/Hero-bg.jpg" alt="Hero bg" width="650" height="800">
+       </div>
+      </section>
+      <div class="chart-container">
+        <canvas id="inventoryChart"></canvas>
+      </div>
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const ctx = document.getElementById('inventoryChart').getContext('2d');
+      document.addEventListener("DOMContentLoaded", () => {
+        const ctx = document.getElementById("inventoryChart").getContext("2d");
 
-            const inventoryChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: [],
-                    datasets: [{
-                        label: 'Inventory Levels',
-                        data: [],
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderWidth: 1
-                    }]
+        const inventoryChart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: [],
+            datasets: [
+              {
+                label: "Inventory Levels",
+                data: [],
+                borderColor: "rgba(75, 192, 192, 1)",
+                backgroundColor: "rgba(75, 192, 192, 0.2)",
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              x: {
+                type: "linear",
+                title: {
+                  display: true,
+                  text: "Time",
                 },
-                options: {
-                    scales: {
-                        x: {
-                            type: 'linear',
-                            title: {
-                                display: true,
-                                text: 'Time'
-                            }
-                        },
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Inventory Level'
-                            }
-                        }
-                    }
-                }
-            });
-
-            function fetchData() {
-                return new Promise(resolve => {
-                    setTimeout(() => {
-                        resolve({
-                            labels: [new Date().toLocaleTimeString()],
-                            data: [Math.floor(Math.random() * 100)]
-                        });
-                    }, 1000);
-                });
-            }
-
-            async function updateChart() {
-                const newData = await fetchData();
-                const now = new Date().toLocaleTimeString();
-
-                if (inventoryChart.data.labels.length > 10) {
-                    inventoryChart.data.labels.shift();
-                    inventoryChart.data.datasets[0].data.shift();
-                }
-
-                inventoryChart.data.labels.push(now);
-                inventoryChart.data.datasets[0].data.push(newData.data[0]);
-                inventoryChart.update();
-            }
-
-            setInterval(updateChart, 5000);
+              },
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: "Inventory Level",
+                },
+              },
+            },
+          },
         });
+
+        function fetchData() {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              resolve({
+                labels: [new Date().toLocaleTimeString()],
+                data: [Math.floor(Math.random() * 100)],
+              });
+            }, 1000);
+          });
+        }
+
+        async function updateChart() {
+          const newData = await fetchData();
+          const now = new Date().toLocaleTimeString();
+
+          if (inventoryChart.data.labels.length > 10) {
+            inventoryChart.data.labels.shift();
+            inventoryChart.data.datasets[0].data.shift();
+          }
+
+          inventoryChart.data.labels.push(now);
+          inventoryChart.data.datasets[0].data.push(newData.data[0]);
+          inventoryChart.update();
+        }
+
+        setInterval(updateChart, 5000);
+      });
     </script>
-</body>
+  </body>
 </html>
