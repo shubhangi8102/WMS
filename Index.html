@@ -4,55 +4,131 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Warehouse Management System</title>
+    <link rel="icon" type="image/x-icon" href="./img/warehouse.png" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
   </head>
   <body>
     <nav>
-      <h3>Warehouse Management System</h3>
+      <input type="checkbox" id="check" />
+      <label for="check" class="checkbtn">
+        <i class="fa-solid fa-bars"></i>
+      </label>
+      <label class="logo">Warehouse</label>
       <ul>
+        <li><a class="active" href="#">Home</a></li>
         <li><a href="index.html">Dashboard</a></li>
         <li><a href="inventory.html">Inventory</a></li>
         <li><a href="orders.html">Orders</a></li>
         <li><a href="shipments.html">Shipments</a></li>
         <li><a href="profile.html">Profile</a></li>
-        <li><a href="login.html">Logout</a></li>
+        <li>
+          <button
+            onclick="document.getElementById('id01').style.display='block'"
+            class="nav-btn">
+            LOGIN
+          </button>
+        </li>
       </ul>
     </nav>
+    <!-- Modal -->
+    <div id="id01" class="modal">
+      <form
+        class="modal-content animate"
+        action="/action_page.php"
+        method="post">
+        <div class="imgcontainer">
+          <span
+            onclick="document.getElementById('id01').style.display='none'"
+            class="close"
+            title="Close Modal"
+            >&times;</span
+          >
+          <img src="./img/warehouse.png" alt="Avatar" class="avatar" />
+        </div>
+
+        <div class="container">
+          <label for="uname"><b>Username</b></label>
+          <input
+            type="text"
+            placeholder="Enter Username"
+            name="uname"
+            required />
+
+          <label for="psw"><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="psw"
+            required />
+
+          <button type="submit">Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember" /> Remember
+            me
+          </label>
+        </div>
+
+        <div class="container" style="background-color: #f1f1f1">
+          <button
+            type="button"
+            onclick="document.getElementById('id01').style.display='none'"
+            class="cancelbtn">
+            Cancel
+          </button>
+          <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+      </form>
+    </div>
+    <section class="home">
+      <div class="home-text">
+        <h1>Warehouse Management System</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
+          dolore corrupti aperiam ullam culpa reiciendis aspernatur eligendi,
+          illum natus delectus quam. Eveniet, consequuntur! Quis delectus dolore
+          hic odit itaque sint.
+        </p>
+      </div>
+    </section>
     <main>
       <section class="hero-container">
         <div class="hero-text">
-            <h2>Dashboard Overview</h2>
-            <div class="cards">
-              <div class="card">
-                <h3>Total Inventory</h3>
-                <p id="total-inventory">0</p>
-              </div>
-              <div class="card">
-                <h3>Pending Orders</h3>
-                <p id="pending-orders">0</p>
-              </div>
-              <div class="card">
-                <h3>Shipments</h3>
-                <p id="total-shipments">0</p>
-              </div>
-              <div class="card">
-                <h3>Shipments</h3>
-                <p id="total-shipments">0</p>
-              </div>
+          <h2>Dashboard Overview</h2>
+          <div class="cards">
+            <div class="card">
+              <h3>Total Inventory</h3>
+              <p id="total-inventory">0</p>
             </div>
-    
-           
+            <div class="card">
+              <h3>Pending Orders</h3>
+              <p id="pending-orders">0</p>
+            </div>
+            <div class="card">
+              <h3>Shipments</h3>
+              <p id="total-shipments">0</p>
+            </div>
+            <div class="card">
+              <h3>Shipments</h3>
+              <p id="total-shipments">0</p>
+            </div>
+          </div>
         </div>
-       <div class="hero-img">
-        <img src="./img/Hero-bg.jpg" alt="Hero bg" width="650" height="800">
-       </div>
+        <div class="hero-img">
+          <img src="./img/Hero-bg.jpg" alt="Hero bg" width="650" height="800" />
+        </div>
       </section>
       <div class="chart-container">
         <canvas id="inventoryChart"></canvas>
       </div>
     </main>
-
+    <!-- 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const ctx = document.getElementById("inventoryChart").getContext("2d");
@@ -118,6 +194,7 @@
 
         setInterval(updateChart, 5000);
       });
-    </script>
+    </script> 
+    -->
   </body>
 </html>
