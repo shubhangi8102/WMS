@@ -1,121 +1,265 @@
+:root {
+  --bg: #0082e6;
+  --text: #393e46;
+  --lightSky: #3f72af;
+  --white: #eeeeee;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #000;
-    color: #fff;
-    height: 10vh;
-    border-radius: 20px;
-    padding: 10px 20px;
+  background: #0082e6;
+  height: 10vh;
+  width: 100%;
+}
+label.logo {
+  color: white;
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 100px;
+  font-weight: bold;
+}
+nav ul {
+  float: right;
+  margin-right: 20px;
+}
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav ul li a {
+  color: white;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+a.active,
+a:hover {
+  background: #1b9bff;
+  transition: 0.5s;
+}
+.checkbtn {
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check {
+  display: none;
+}
+@media (max-width: 952px) {
+  label.logo {
+    font-size: 30px;
+    padding-left: 50px;
+  }
+  nav ul li a {
+    font-size: 16px;
+  }
+}
+@media (max-width: 858px) {
+  .checkbtn {
+    display: block;
+  }
+  ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all 0.5s;
+  }
+  nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a {
+    font-size: 20px;
+  }
+  a:hover,
+  a.active {
+    background: none;
+    color: #0082e6;
+  }
+  #check:checked ~ ul {
+    left: 0;
+  }
+}
+.nav-btn {
+  height: 40px;
+  font-size: 17px;
+  width: 130px;
+  border-radius: none;
 }
 
-nav h3 {
-    margin: 0;
-}
-
-ul {
-    display: flex;
-    list-style-type: none;
+.home {
+    background-image: url("../img/homesecction.svg");
+    background-color: #cccccc; 
+    background-size: cover; 
+    background-position: center; 
+    width: 100%;
+    height: 90vh;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     margin: 0;
     padding: 0;
-    gap: 20px;
 }
 
-li {
-    list-style: none;
+.home-text {
+    background-color: rgba(51, 51, 51, 0.8); 
+    color: #fff; 
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 900px; 
+    height: 300px;
+    text-align: center; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
 }
 
-a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+.hero-text,h1{
+    padding: 20px;
+}
+/* Feature */
+#features {
+  padding: 50px 0;
+  text-align: center;
+  background-color: #f9f9f9;
 }
 
-a:hover {
-    background-color: #fff;
-    color: #000;
+#features h2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 40px;
 }
 
-a:active {
-    background-color: #fff;
-    color: #000;
+.features-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
+
+.feature-card {
+  /* background-color: white; */
+  padding: 2rem;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  max-width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+#features i:hover {
+  transform: translatex(20px);
+}
+
+#features i {
+  font-size: 60px;
+  color: #007bff;
+  margin-bottom: 1.5rem;
+}
+
+.feature-card h3 {
+  font-size: 17px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  color: #777;
+  font-size: 16px;
+}
+
+.feature-card a {
+  display: inline-block;
+  margin-top: 20px;
+  color: #333;
+  text-decoration: none;
+}
+
 
 /* Hero Section */
 
-/* General Styles */
-main {
-    padding: 20px;
-    background-color: #f4f4f4;
-    height: 70vh;
-}
-
 .hero-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    gap: 20px;
-    height: 70vh;
-    
+    margin-top: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  gap: 20px;
+  height: 90vh;
 }
 .hero-text {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
 }
 
 .hero-text h2 {
-    flex-basis: 100%;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
+  flex-basis: 100%;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .cards {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
 }
 .card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #495057;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #495057;
 }
 
 .card p {
-    font-size: 2rem;
-    margin: 0;
-    color: #007bff;
+  font-size: 2rem;
+  margin: 0;
+  color: #007bff;
 }
 .card {
-    flex: 1;
-    min-width: 250px; /* Ensures cards don't get too small */
-    background-color: #e9ecef;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 250px;
+  background-color: #e9ecef;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .chart-container {
-    flex-basis: 100%;
-    margin-top: 20px;
+  flex-basis: 100%;
+  margin-top: 20px;
 }
 
 .hero-img img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-top: 100px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 100px;
 }
