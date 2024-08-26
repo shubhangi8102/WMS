@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Warehouse Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="inventory.html">Inventory</a></li>
+                <li><a href="orders.html">Orders</a></li>
+                <li><a href="shipments.html">Shipments</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="login.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="profile">
+            <h2>User Profile</h2>
+            <form id="profileForm">
+                <input type="text" id="username" placeholder="Username" required value="JohnDoe">
+                <input type="email" id="email" placeholder="Email" required value="johndoe@example.com">
+                <input type="password" id="password" placeholder="New Password">
+                <button type="submit">Update Profile</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const profileForm = document.getElementById('profileForm');
+
+            profileForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Profile updated successfully!');
+            });
+        });
+    </script>
+</body>
+</html>

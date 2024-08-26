@@ -1,0 +1,91 @@
+<!-- shipments.html (Extended) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipment Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Shipment Management</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="inventory.html">Inventory</a></li>
+                <li><a href="orders.html">Orders</a></li>
+                <li><a href="shipments.html">Shipments</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="shipment-management">
+            <h2>Shipments</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Shipment ID</th>
+                        <th>Order ID</th>
+                        <th>Tracking Number</th>
+                        <th>Status</th>
+                        <th>Estimated Delivery Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="shipment-list">
+                    <!-- Shipments will be listed here -->
+                </tbody>
+            </table>
+            <button onclick="addShipment()">Add New Shipment</button>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const shipmentList = document.getElementById('shipment-list');
+
+            function loadShipments() {
+                // Simulate loading shipment data
+                const shipmentData = [
+                    { id: 1, orderId: 101, trackingNumber: 'ABC123', status: 'In Transit', deliveryDate: '2024-08-22' },
+                    { id: 2, orderId: 102, trackingNumber: 'DEF456', status: 'Delivered', deliveryDate: '2024-08-19' },
+                    { id: 3, orderId: 103, trackingNumber: 'GHI789', status: 'Pending', deliveryDate: '2024-08-25' }
+                ];
+
+                shipmentList.innerHTML = '';
+                shipmentData.forEach(shipment => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${shipment.id}</td>
+                        <td>${shipment.orderId}</td>
+                        <td>${shipment.trackingNumber}</td>
+                        <td>${shipment.status}</td>
+                        <td>${shipment.deliveryDate}</td>
+                        <td>
+                            <button onclick="editShipment(${shipment.id})">Edit</button>
+                            <button onclick="deleteShipment(${shipment.id})">Delete</button>
+                        </td>
+                    `;
+                    shipmentList.appendChild(row);
+                });
+            }
+
+            loadShipments();
+
+            window.addShipment = function() {
+                alert('Add new shipment functionality');
+            };
+
+            window.editShipment = function(shipmentId) {
+                alert('Edit shipment functionality for shipment ID ' + shipmentId);
+            };
+
+            window.deleteShipment = function(shipmentId) {
+                alert('Delete shipment functionality for shipment ID ' + shipmentId);
+            };
+        });
+    </script>
+</body>
+</html>
