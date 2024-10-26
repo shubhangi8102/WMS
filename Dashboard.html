@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Warehouse Management System</title>
+    <link rel="icon" type="image/x-icon" href="./img/warehouse.png" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check" />
+        <label for="check" class="checkbtn">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+        <label class="logo">Warehouse</label>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a class="active" href="dashboard.html">Dashboard</a></li>
+            <li><a href="./components/Inventory.html">Inventory</a></li>
+            <li><a href="./components/Order.html">Orders</a></li>
+            <li><a href="./components/Shipments.html">Shipments</a></li>
+            <li><a href="./components/Profile.html">Profile</a></li>
+            <li><a href="./components/Login.html">Login</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section class="hero-container" id="Dashboard">
+            <div class="hero-text">
+                <h2>Dashboard Overview</h2>
+                <div class="cards">
+                    <div class="card">
+                        <h3>Total Inventory</h3>
+                        <p id="total-inventory">0</p>
+                    </div>
+                    <div class="card">
+                        <h3>Pending Orders</h3>
+                        <p id="pending-orders">0</p>
+                    </div>
+                    <div class="card">
+                        <h3>Total Shipments</h3>
+                        <p id="total-shipments">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-img">
+                <img src="./img/Hero-bg.jpg" alt="Hero bg" width="650" height="800" />
+            </div>
+        </section>
+        <div class="chart-container">
+            <canvas id="inventoryChart"></canvas>
+        </div>
+    </main>
+
+    <!-- Js file -->
+    <script src="./scripts/script.js"></script>
+</body>
+</html>
