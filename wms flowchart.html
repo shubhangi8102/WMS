@@ -1,0 +1,230 @@
+wms flowchart
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMS Flowchart</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .center-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #4CAF50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .center-circle:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .step {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 10%;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .step img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 14px;
+            text-align: center;
+            margin: 0;
+        }
+
+        /* Step Positions */
+        #receiving { top: 10%; left: 50%; transform: translate(-50%, 0); }
+        #inspection { top: 25%; left: 30%; transform: translate(-50%, 0); }
+        #classification { top: 25%; left: 70%; transform: translate(-50%, 0); }
+        #storage { top: 50%; left: 30%; transform: translate(-50%, 0); }
+        #inventory { top: 50%; left: 70%; transform: translate(-50%, 0); }
+        #order-picking { top: 75%; left: 50%; transform: translate(-50%, 0); }
+        #packaging { top: 90%; left: 30%; transform: translate(-50%, 0); }
+        #shipping { top: 90%; left: 70%; transform: translate(-50%, 0); }
+        #returns { top: 75%; left: 50%; transform: translate(-50%, 0); }
+
+        /* Hover Effects */
+        .step:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            border-color: #4CAF50;
+        }
+
+        /* Arrow Styles */
+        .arrow {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #4CAF50;
+            transform: rotate(45deg);
+            z-index: -1;
+        }
+
+        /* Arrow Positioning */
+        #arrow-receiving-inspection {
+            top: 18%;
+            left: 50%;
+        }
+        #arrow-classification-storage {
+            top: 41%;
+            left: 42%;
+            transform: rotate(90deg);
+        }
+        #arrow-classification-inventory {
+            top: 41%;
+            left: 58%;
+            transform: rotate(270deg);
+        }
+        #arrow-inventory-order {
+            top: 65%;
+            left: 50%;
+        }
+        #arrow-order-packaging {
+            top: 80%;
+            left: 35%;
+        }
+        #arrow-order-shipping {
+            top: 80%;
+            left: 65%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="center-circle">WMS</div>
+        
+        <!-- Steps around the WMS center -->
+        <div class="step" id="receiving">
+            <img src="https://www.flaticon.com/svg/static/icons/svg/2942/2942049.svg" alt="Receiving">
+            <p>Receiving</p>
+        </div>
+        <div class="arrow" id="arrow-receiving-inspection"></div>
+        
+        <div class="step" id="inspection">
+            <img src="https://www.flaticon.com/svg/static/icons/svg/2921/2921847.svg" alt="Inspection">
+            <p>Inspection</p>
+        </div>
+
+        <div class="step" id="classification">
+            <img src="https://www.flaticon.com/svg/static/icons/svg/2942/2942091.svg" alt="Classification">
+            <p>Classification</p>
+        </div>
+        <div class="arrow" id="arrow-classification-storage"></div>
+        <div class="arrow" id="arrow-classification-inventory"></div>
+
+        <div class="step" id="storage">
+            <img src="https://www.flaticon.com/svg/static/icons/svg/2942/2942047.svg" alt="Storage Allocation">
+            <p>Storage Allocation</p>
+        </div>
+        <div class="step" id="inventory">
+            <img src="https://www.flaticon.com/svg/static/icons/svg/2917/2917242.svg" alt="Inventory Management">
+            <p>Inventory Management</p>
+        </div>
+
+        <div class="step" id="order-picking">
+            <img src="https://www.flaticon.com/svg/static/icons/svg/2920/2920732.svg" alt="Order Picking">
+            <p>Order Picking</p>
+        </div>
+        <div class="arrow" id="arrow-inventory-order"></div>
+
+        <div class="step" id="packaging">
+            <img src="https://www.flaticon.com/svg/static/icons/svg/2920/2920727.svg" alt="Packaging">
+            <p>Packaging</p>
+        </div>
+        <div class="arrow" id="arrow-order-packaging"></div>
+
+        <div class="step" id="shipping">
+            <img src="https://www.flaticon.com/svg/static/icons/svg/2921/2921825.svg" alt="Shipping">
+            <p>Shipping</p>
+        </div>
+        <div class="arrow" id="arrow-order-shipping"></div>
+
+        <div class="step" id="returns">
+            <img src="https://www.flaticon.com/svg/static/icons/svg/2919/2919097.svg" alt="Returns Processing">
+            <p>Returns Processing</p>
+        </div>
+    </div>
+
+    <script>
+        // Add any interactivity (optional)
+        document.querySelectorAll('.step').forEach(step => {
+            step.addEventListener('mouseover', () => {
+                step.style.borderColor = '#4CAF50';
+            });
+
+            step.addEventListener('mouseout', () => {
+                step.style.borderColor = '#ccc';
+            });
+        });
+
+        // Function to create arrows dynamically
+        function createArrow(startX, startY, endX, endY) {
+            const arrow = document.createElement('div');
+            arrow.className = 'arrow';
+            const x1 = startX - endX;
+            const y1 = startY - endY;
+            const length = Math.sqrt(x1 * x1 + y1 * y1);
+            arrow.style.width = `${length}px`;
+            arrow.style.height = '2px';
+            arrow.style.position = 'absolute';
+            arrow.style.backgroundColor = '#4CAF50';
+            arrow.style.transformOrigin = '0 0';
+            arrow.style.transform = `translate(${startX}px, ${startY}px) rotate(${Math.atan2(y1, x1) * 180 / Math.PI}deg)`;
+            document.querySelector('.container').appendChild(arrow);
+        }
+
+        // Create arrows between steps
+        createArrow(300, 120, 300, 200); // Receiving to Inspection
+        createArrow(300, 300, 220, 300); // Classification to Storage
+        createArrow(300, 300, 380, 300); // Classification to Inventory
+        createArrow(300, 450, 300, 525); // Inventory to Order Picking
+        createArrow(300, 525, 240, 590); // Order Picking to Packaging
+        createArrow(300, 525, 360, 590); // Order Picking to Shipping
+    </script>
+</body>
+</html>

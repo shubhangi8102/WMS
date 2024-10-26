@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMS Flowchart</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            position: relative;
+            width: 600px;
+            height: 600px;
+        }
+
+        .center-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #4CAF50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .center-circle h1 {
+            font-size: 24px;
+        }
+
+        .step {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .step img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* Hover Effects */
+        .step:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Positioning steps in a circular layout */
+        #receiving {
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+
+        #classification {
+            top: 30%;
+            left: 80%;
+            transform: translate(-50%, 0);
+        }
+
+        #work-documents {
+            top: 60%;
+            left: 85%;
+            transform: translate(-50%, 0);
+        }
+
+        #goods-preparation {
+            top: 85%;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+
+        #packaging {
+            top: 60%;
+            left: 15%;
+            transform: translate(-50%, 0);
+        }
+
+        #dispatching {
+            top: 30%;
+            left: 20%;
+            transform: translate(-50%, 0);
+        }
+
+        #barcode {
+            top: 50%;
+            left: 100%;
+            transform: translate(-50%, -50%);
+        }
+
+        #reallocation {
+            top: 50%;
+            left: 0%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="center-circle">
+            <h1>WMS</h1>
+        </div>
+        
+        <!-- Steps around the WMS center -->
+        <div class="step" id="receiving">
+            <img src="icons/truck.png" alt="Receiving">
+            <p>Receiving</p>
+        </div>
+
+        <div class="step" id="classification">
+            <img src="icons/forklift.png" alt="Classified Placement">
+            <p>Classified Placement</p>
+        </div>
+
+        <div class="step" id="work-documents">
+            <img src="icons/documents.png" alt="Work Documents">
+            <p>Work Documents</p>
+        </div>
+
+        <div class="step" id="goods-preparation">
+            <img src="icons/goods.png" alt="Goods Preparing">
+            <p>Goods Preparing</p>
+        </div>
+
+        <div class="step" id="packaging">
+            <img src="icons/packaging.png" alt="Packaging">
+            <p>Packaging</p>
+        </div>
+
+        <div class="step" id="dispatching">
+            <img src="icons/dispatch.png" alt="Dispatching">
+            <p>Dispatching</p>
+        </div>
+
+        <div class="step" id="barcode">
+            <img src="icons/barcode.png" alt="Bar Code Printing">
+            <p>Bar Code Printing</p>
+        </div>
+
+        <div class="step" id="reallocation">
+            <img src="icons/storage.png" alt="Storage Reallocation">
+            <p>Storage Reallocation</p>
+        </div>
+    </div>
+
+    <script>
+        // Add any interactivity (optional)
+        document.querySelectorAll('.step').forEach(step => {
+            step.addEventListener('mouseover', () => {
+                step.style.borderColor = '#4CAF50';
+            });
+
+            step.addEventListener('mouseout', () => {
+                step.style.borderColor = '#ccc';
+            });
+        });
+    </script>
+</body>
+</html>
